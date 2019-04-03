@@ -171,12 +171,13 @@ function kpiDashboard(inData) {
       arrS.push(salesman);
       arrA.push(amount);
       totalAmount += amount;
-      var perc = amount[i]/totalAmount;
+      var perc = inData[i].amount/totalAmount;
 
 
       pieChart(arrS, arrA);
       lineChart(arrA);
   }
+  console.log(perc);
 }
 
 function dashboardItem(arrS, arrA) {
