@@ -125,7 +125,7 @@ data: {
 }
 
 function lineChart(arrA) {
-  
+
      Chart.defaults.global.defaultFontColor = 'red';
 
      var ctx = document.getElementById('myChart2').getContext('2d');
@@ -141,13 +141,10 @@ function lineChart(arrA) {
            backgroundColor: [
 
              'rgba(255, 99, 132, 1)',
-
-
            ],
            borderColor:  [
 
              'rgba(255, 99, 132, 1)',
-
            ],
 
            data: arrA
@@ -156,7 +153,6 @@ function lineChart(arrA) {
 
        options:{}
    });
-
 }
 
 
@@ -179,11 +175,9 @@ function kpiDashboard(inData) {
       pieChart(arrS, arrA);
       lineChart(arrS, arrA);
     }
-
 }
 
 function dashboardItem(arrS, arrA) {
-
 
   $.ajax({
 
@@ -191,8 +185,7 @@ function dashboardItem(arrS, arrA) {
     method : "GET",
     success : function(inData) {
 
-
-     kpiDashboard(inData)
+       kpiDashboard(inData)
     },
     error: function (request, state, error) {
       console.log("request" , date);
