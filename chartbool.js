@@ -160,16 +160,20 @@ function kpiDashboard(inData) {
   var arrS = [];
   var arrA = [];
   var totalAmount = 0;
+  var perc = amount[i]/totalAmount;
   for (var i = 0; i < inData.length; i++) {
 
-      var amount = inData[i];
+      var data = inData[i];
 
-      var salesman = amount.salesman;
-      amount = amount.amount;
+      var salesman = data.salesman;
+      amount = data.amount;
 
       arrS.push(salesman);
       arrA.push(amount);
       totalAmount += amount;
+      var perc = amount[i]/totalAmount;
+
+
       pieChart(arrS, arrA);
       lineChart(arrA);
   }
