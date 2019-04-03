@@ -1,30 +1,40 @@
-function dashboardKPI() {
+function data() {
+
+  var arrS = [];
+  var arrA = [];
+  var totalAmount = 0;
+  for (var i = 0; i < inData.length; i++) {
+
+      var amount = inData[i];
+
+      var salesman = amount.salesman;
+      amount = amount.amount;
+
+      arrS.push(salesman);
+      arrA.push(amount);
+
+      totalAmount += amount;
+      dashboardKPI(arrS, arrA)
+    }
+
+  return arrS, arrA, totalAmount;
+}
+
+function dashboardKPI(arrS, arrA) {
 
 
   $.ajax({
 
     url: "http://157.230.17.132:4016/sales",
-    //data: outData,
     method : "GET",
     success : function(inData) {
-
-      var arrS = [];
-      var arrA = [];
-      for (var i = 0; i < inData.length; i++) {
-
-         var amount = inData[i];
-         var salesman = amount.salesman;
-         var amount = amount.amount;
-          arrS.push(salesman);
-          arrA.push(amount);
-      }
 
        Chart.defaults.global.defaultFontColor = 'red';
 
        var ctx = document.getElementById('myChart').getContext('2d');
        var chart = new Chart(ctx, {
      // The type of chart we want to create
-     type: 'bar',
+     type: 'pie',
 
      // The data for our dataset
      data: {
@@ -155,7 +165,9 @@ function dashboardKPI() {
 
 function init() {
 
-  dashboardKPI();
+
+  var data = data();
+  console.log(data);
 }
 
 $(document).ready(init);
