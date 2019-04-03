@@ -125,38 +125,37 @@ data: {
 }
 
 function lineChart(arrA) {
-  Chart.defaults.global.defaultFontColor = 'red';
+  
+     Chart.defaults.global.defaultFontColor = 'red';
 
-  var ctx = document.getElementById('myChart2').getContext('2d');
-  var chart = new Chart(ctx, {
-// The type of chart we want to create
-type: 'line',
+     var ctx = document.getElementById('myChart2').getContext('2d');
+     var chart = new Chart(ctx, {
+   // The type of chart we want to create
+   type: 'line',
 
-// The data for our dataset
-data: {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', "August", "September", "October", "November", "December"],
-    datasets: [{
-        label: 'My First dataset',
-        backgroundColor: [
+   // The data for our dataset
+   data: {
+       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', "August", "September", "October", "November", "December"],
+       datasets: [{
+           label: 'My First dataset',
+           backgroundColor: [
 
-          'rgba(255, 99, 132, 1)',
-
-
-        ],
-        borderColor:  [
-
-          'rgba(255, 99, 132, 1)',
-
-        ],
-
-        data: arrA
-    }]
-  },
-
-    options:{}
-});
+             'rgba(255, 99, 132, 1)',
 
 
+           ],
+           borderColor:  [
+
+             'rgba(255, 99, 132, 1)',
+
+           ],
+
+           data: arrA
+       }]
+     },
+
+       options:{}
+   });
 
 }
 
