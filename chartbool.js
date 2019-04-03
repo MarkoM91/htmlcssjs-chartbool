@@ -127,7 +127,7 @@ data: {
 function lineChart(arrA) {
   Chart.defaults.global.defaultFontColor = 'red';
 
-  var ctx = document.getElementById('myChart').getContext('2d');
+  var ctx = document.getElementById('myChart2').getContext('2d');
   var chart = new Chart(ctx, {
 // The type of chart we want to create
 type: 'line',
@@ -183,7 +183,7 @@ function kpiDashboard(inData) {
 
 }
 
-function dashboardPie(arrS, arrA) {
+function dashboardItem(arrS, arrA) {
 
 
   $.ajax({
@@ -204,58 +204,12 @@ function dashboardPie(arrS, arrA) {
   });
 
 }
-function dashboardLine(arrA) {
 
-  $.ajax({
-
-    url: "http://157.230.17.132:4016/sales",
-    method : "GET",
-    success : function(inData) {
-
-       Chart.defaults.global.defaultFontColor = 'red';
-
-       var ctx = document.getElementById('myChart').getContext('2d');
-       var chart = new Chart(ctx, {
-     // The type of chart we want to create
-     type: 'line',
-
-     // The data for our dataset
-     data: {
-         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', "August", "September", "October", "November", "December"],
-         datasets: [{
-             label: 'My First dataset',
-             backgroundColor: [
-
-               'rgba(255, 99, 132, 1)',
-
-
-             ],
-             borderColor:  [
-
-               'rgba(255, 99, 132, 1)',
-
-             ],
-
-             data: arrA
-         }]
-       },
-
-         options:{}
-     });
-
-    },
-    error: function (request, state, error) {
-      console.log("request" , date);
-      console.log("state" , state);
-      console.log("date" , error);
-    }
-  });
-}
 
 function init() {
 
-  var data = kpiDashboard();
-  document.write(data);
+  dashboardItem();
+
 }
 
 $(document).ready(init);
