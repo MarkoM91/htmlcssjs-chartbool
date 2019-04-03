@@ -1,4 +1,4 @@
-function pieChart(arrS, arrA) {
+function pieChart(arrS, perc) {
 
   Chart.defaults.global.defaultFontColor = 'red';
 
@@ -115,7 +115,7 @@ data: {
           'rgba(255, 159, 64, 1)'
         ],
 
-        data: arrA
+        data: perc
     }]
   },
 
@@ -160,7 +160,7 @@ function kpiDashboard(inData) {
   var arrS = [];
   var arrA = [];
   var totalAmount = 0;
-  var perc = amount[i]/totalAmount;
+
   for (var i = 0; i < inData.length; i++) {
 
       var data = inData[i];
@@ -172,9 +172,9 @@ function kpiDashboard(inData) {
       arrA.push(amount);
       totalAmount += amount;
       var perc = inData[i].amount/totalAmount;
+      console.log(perc);
 
-
-      pieChart(arrS, arrA);
+      pieChart(arrS, perc);
       lineChart(arrA);
   }
   console.log(perc);
