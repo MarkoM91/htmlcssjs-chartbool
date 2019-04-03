@@ -154,7 +154,6 @@ function lineChart(arrA) {
    });
 }
 
-
 function kpiDashboard(inData) {
 
   var arrS = [];
@@ -165,21 +164,19 @@ function kpiDashboard(inData) {
   for (var i = 0; i < inData.length; i++) {
 
       var data = inData[i];
-
       var salesman = data.salesman;
       amount = data.amount;
 
       arrS.push(salesman);
       arrA.push(amount);
+
       totalAmount += amount;
       var perc = inData[i].amount/totalAmount;
       arrP.push(perc);
-      console.log(perc);
 
       pieChart(arrS, arrP);
       lineChart(arrA);
   }
-  console.log(perc);
 }
 
 function dashboardItem(arrS, arrA) {
