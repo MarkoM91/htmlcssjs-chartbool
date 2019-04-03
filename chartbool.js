@@ -62,7 +62,6 @@ data: {
           'rgba(75, 192, 192, 1)',
           'rgba(153, 102, 255, 1)',
           'rgba(255, 159, 64, 1)'
-
         ],
         borderColor:  [
 
@@ -170,11 +169,10 @@ function kpiDashboard(inData) {
 
       arrS.push(salesman);
       arrA.push(amount);
-
       totalAmount += amount;
       pieChart(arrS, arrA);
-      lineChart(arrS, arrA);
-    }
+      lineChart(arrA);
+  }
 }
 
 function dashboardItem(arrS, arrA) {
@@ -192,16 +190,12 @@ function dashboardItem(arrS, arrA) {
       console.log("state" , state);
       console.log("date" , error);
     }
-
   });
-
 }
-
 
 function init() {
 
   dashboardItem();
-
 }
 
 $(document).ready(init);
