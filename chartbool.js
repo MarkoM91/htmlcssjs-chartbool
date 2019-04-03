@@ -47,6 +47,10 @@ function dashboardKPI() {
 
              data: amount
          }]
+       },
+
+         options:{}
+     });
 
     },
     error: function (request, state, error) {
@@ -54,10 +58,9 @@ function dashboardKPI() {
       console.log("state" , state);
       console.log("date" , error);
     }
+
   });
 
-
-})
 }
 
 function init() {
