@@ -58,39 +58,42 @@ function kpiDashboard(inData) {
 
      totMonth[monthName] += amount;
   }
-  
+
   var monthList = Object.keys(totMonth);
   var valueList = Object.values(totMonth);
+  lineChart(monthList, valueList);
 
+}
 
+function lineChart(monthList, valueList) {
 
-       Chart.defaults.global.defaultFontColor = 'red';
+  Chart.defaults.global.defaultFontColor = 'red';
 
-       var ctx = document.getElementById('myChart').getContext('2d');
-       var chart = new Chart(ctx, {
-     // The type of chart we want to create
-     type: 'line',
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var chart = new Chart(ctx, {
+// The type of chart we want to create
+type: 'line',
 
-     // The data for our dataset
-     data: {
-         labels: monthList,
-         datasets: [{
-             label: 'My First dataset',
-             backgroundColor: [
+// The data for our dataset
+data: {
+    labels: monthList,
+    datasets: [{
+        label: 'My First dataset',
+        backgroundColor: [
 
-               'rgba(255, 99, 132, 1)',
-             ],
-             borderColor:  [
+          'rgba(255, 99, 132, 1)',
+        ],
+        borderColor:  [
 
-               'rgba(255, 99, 132, 1)',
-             ],
+          'rgba(255, 99, 132, 1)',
+        ],
 
-             data: valueList
-         }]
-       },
+        data: valueList
+    }]
+  },
 
-         options:{}
-     });
+    options:{}
+});
 }
 
 function init() {

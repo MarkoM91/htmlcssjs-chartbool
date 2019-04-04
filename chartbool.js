@@ -173,10 +173,11 @@ function kpiDashboard(inData) {
       totalAmount += amount;
       var perc = inData[i].amount/totalAmount;
       arrP.push(perc);
-
+      
       pieChart(arrS, arrP);
       lineChart(arrA);
   }
+  console.log(arrP);
 }
 
 function dashboardItem(arrS, arrA) {
@@ -190,7 +191,7 @@ function dashboardItem(arrS, arrA) {
        kpiDashboard(inData)
     },
     error: function (request, state, error) {
-      console.log("request" , date);
+      console.log("request" , request);
       console.log("state" , state);
       console.log("date" , error);
     }
