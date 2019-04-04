@@ -68,6 +68,7 @@ function kpiDashboard(inData) {
   var valueList = Object.values(totMonth);
 
   selectMOTY(monthList);
+
   lineChart(monthList, valueList);
 }
 
@@ -128,7 +129,7 @@ function selectS(salesmanList) {
     var option = document.createElement("option");
     option.value = element;
     option.innerHTML = element;
-    
+
     selectSalesman.append(option);
   }
 }
@@ -137,11 +138,11 @@ function selectMOTY(monthList) {
 
   var selectMOTY = $(".monthOfTheYear");
   for (var i = 0; i < monthList.length; i++) {
-
+    var monthName = monthList[i];
     option =document.createElement("option");
-    option.value = monthList[i];
-
-    selectMOTY.append(selectMOTY);
+    option.value = monthName;
+    option.innerHTML = monthName;
+    selectMOTY.append(option);
   }
 }
 
