@@ -89,8 +89,7 @@ function kpiSalesman(inData) {
 
 function inputTxt() {
   var me = $(this);
-  var input = $("#txt");
-  var inputVal = input.val();
+  var inputVal = me.siblings("#txt").val();
 
   postSales(inputVal);
 }
