@@ -51,7 +51,6 @@ function kpiDashboard(inData) {
     "dicembre":0
   }
 
-
   for (var i = 0; i < inData.length; i++) {
 
      var data = inData[i];
@@ -59,93 +58,92 @@ function kpiDashboard(inData) {
      var date = data.date;
      var salesman = data.salesman;
 
-
      var mom = moment(date, "DD/MM/YYYY");
      var monthName = mom.locale("it").format("MMMM");
 
      totMonth[monthName] += amount;
-
-
     }
+
   var monthList = Object.keys(totMonth);
   var valueList = Object.values(totMonth);
 
-
+  selectMOTY(monthList);
   lineChart(monthList, valueList);
-
-  //selectS(salesman);
-  //selectMOTY(monthList);
 }
 
 function kpiSalesman(inData) {
-
-    var totSalesman = {};
-
-    var totalAmount = 0;
+  var totSalesman = {};
+  var totalAmount = 0;
 
   for (var i = 0; i < inData.length; i++) {
-
     var element = inData[i];
     var salesman = element.salesman;
     var amount = element.amount;
-console.log(amount);
+
     totalAmount += amount;
     var perc = (amount / totalAmount) * 100;
-console.log(perc);
     if (!totSalesman[salesman]) {
-
        totSalesman[salesman] = 0;
     }
 
     totSalesman[salesman] += element.amount;
-
   }
+
+  var salesmanList = Object.keys(totSalesman);
+  selectS(salesmanList);
 
   return totSalesman;
 }
 
-//function postSales() {
+function postSales(amount) {
 
-//  $.ajax({
+//  var outData = {
 //
-//      url: "http://157.230.17.132:4016/sales",
-//      method : "POST",
-//      success : function(inData) {
-//       var data;
-//       for (var i = 0; i < inData.length; i++) {
-//
-//           data = inData[i];
-//         console.log(data);
-//       }
-//
-//      }
-//  });
-//
-//}
-
-//function selectS(salesman) {
-
-//  var selectSalesman = $(".salesman");
-//  for (var i = 0; i < salesman.length; i++) {
-//
-//    option =document.createElement("option");
-//    option.value = salesmans[i].salesman;
-//
-//    datalist.append(selectSalesman);
+//    salesman:
+//    amount: ,    date: ,
+//    id:
 //  }
-//}
-//
-//function selectMOTY(monthList) {
 
-//  var selectMOTY = $(".salesman");
-//  for (var i = 0; i < monthList.length; i++) {
-//
-//    option =document.createElement("option");
-//    option.value = monthList[i];
-//
-//    datalist.append(selectMOTY);
-//  }
-//}
+
+
+ //  $.ajax({
+ //
+ //      url: "http://157.230.17.132:4016/sales",
+ //      method : "POST",
+ //      success : function(inData) {
+ //
+ //         for (var i = 0; i < inData.length; i++) {
+ //           var data = inData[i];
+ //         }
+ //         }
+ //      }
+ //  });
+ }
+
+function selectS(salesmanList) {
+  console.log(salesmanList);
+  var selectSalesman = $(".salesman");
+  for (var i = 0; i < salesmanList.length; i++) {
+    var element = salesmanList[i];
+    var option = document.createElement("option");
+    option.value = element;
+    option.innerHTML = element;
+    
+    selectSalesman.append(option);
+  }
+}
+
+function selectMOTY(monthList) {
+
+  var selectMOTY = $(".monthOfTheYear");
+  for (var i = 0; i < monthList.length; i++) {
+
+    option =document.createElement("option");
+    option.value = monthList[i];
+
+    selectMOTY.append(selectMOTY);
+  }
+}
 
 function lineChart(monthList, valueList) {
 
@@ -323,9 +321,8 @@ function init() {
 
  printKeysAndValues(object);
 
- //postSales();
-
- //$(document).on("click", "#btn", postSales);
+var button = $("#btn");
+ button.click(postSales);
 }
 
 $(document).ready(init);
