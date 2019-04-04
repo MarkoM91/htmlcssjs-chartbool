@@ -92,8 +92,8 @@ function inputTxt() {
   var input = $("#txt");
   var inputVal = input.val();
 
-  var salesmanElem = me.siblings(".salesman  option").val();
-  var monthElem = me.siblings(".monthOfTheYear  option").val();
+  var salesmanElem = $(".salesman  option").val();
+  var monthElem = $(".monthOfTheYear  option").val();
 
   postSales(salesmanElem, inputVal, monthElem);
 }
