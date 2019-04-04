@@ -88,13 +88,14 @@ function kpiSalesman(inData) {
 }
 
 function inputTxt() {
-  var input = $("#gen-txt");
+  var input = $("#txt");
   var inputVal = input.val();
-
   postSales(inputVal);
 }
 
 function postSales(inputVal) {
+
+ console.log(inputVal);
  var salesman = $(".salesman option").val();
  var monthOfTheYear = $(".monthOfTheYear option").val();
 
