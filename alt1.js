@@ -13,15 +13,13 @@ function printKeysAndValues(object) {
 function dashboardItem() {
 
   $.ajax({
-
     url: "http://157.230.17.132:4016/sales",
     method : "GET",
     success : function(inData) {
-
        kpiDashboard(inData)
        //CREAZIONE GRAFICO A TORTA
-      var result = kpiSalesman(inData);
-      pieChart(result);
+       var result = kpiSalesman(inData);
+       pieChart(result);
     },
     error: function (request, state, error) {
       console.log("request" , request);
@@ -33,6 +31,7 @@ function dashboardItem() {
 
 function kpiDashboard(inData) {
   var totMonth = {
+
     "gennaio":0,
     "febbraio":0,
     "marzo":0,
@@ -63,7 +62,6 @@ function kpiDashboard(inData) {
   var valueList = Object.values(totMonth);
 
   selectMOTY(monthList);
-
   lineChart(monthList, valueList);
 }
 
@@ -81,10 +79,8 @@ function kpiSalesman(inData) {
     if (!totSalesman[salesman]) {
        totSalesman[salesman] = 0;
     }
-
     totSalesman[salesman] += element.amount;
   }
-
   var salesmanList = Object.keys(totSalesman);
   selectS(salesmanList);
 
