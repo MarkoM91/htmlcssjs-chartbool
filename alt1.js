@@ -72,7 +72,6 @@ function kpiDashboard(inData) {
   lineChart(monthList, valueList);
 }
 
-
 function kpiSalesman(inData) {
   var totSalesman = {};
   var totalAmount = 0;
@@ -110,7 +109,6 @@ function postSales(inputVal) {
  var salesman = $(".salesman").val();
  var monthOfTheYear = $(".monthOfTheYear").val();
  var outData = {
-
     salesman: salesman,
     amount: inputVal,
     date: monthOfTheYear,
