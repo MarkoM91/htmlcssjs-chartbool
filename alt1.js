@@ -67,13 +67,12 @@ function kpiDashboard(inData) {
      var perc = data.amount/totalAmount;
      arrP.push(perc);
      arrS.push(salesman);
-     pieChart(arrS, arrP)
-  }
+    }
 
   var monthList = Object.keys(totMonth);
   var valueList = Object.values(totMonth);
   lineChart(monthList, valueList);
-
+  pieChart(arrS, arrP)
 }
 
 function lineChart(monthList, valueList) {
