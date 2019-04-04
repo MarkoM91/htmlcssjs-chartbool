@@ -95,8 +95,8 @@ function inputTxt() {
 }
 
 function postSales(inputVal) {
- var salesman = $(".salesman").val();
- var monthOfTheYear = $(".monthOfTheYear").val();
+ var salesman = $(".salesman option").val();
+ var monthOfTheYear = $(".monthOfTheYear option").val();
 
  var outData = {
     salesman: salesman,
