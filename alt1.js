@@ -72,6 +72,7 @@ function kpiDashboard(inData) {
   lineChart(monthList, valueList);
 }
 
+
 function kpiSalesman(inData) {
   var totSalesman = {};
   var totalAmount = 0;
@@ -96,7 +97,15 @@ function kpiSalesman(inData) {
   return totSalesman;
 }
 
-function postSales(amount) {
+function inputTxt() {
+
+  var input = $("#gen-txt");
+  var inputVal = input.val();
+
+  postSales(inputVal);
+}
+
+function postSales(inputVal) {
 
 //  var outData = {
 //
@@ -323,7 +332,7 @@ function init() {
  printKeysAndValues(object);
 
 var button = $("#btn");
- button.click(postSales);
+ button.click(inputTxt);
 }
 
 $(document).ready(init);
