@@ -88,24 +88,18 @@ function kpiSalesman(inData) {
 }
 
 function inputTxt() {
+  var me = $(this);
   var input = $("#txt");
   var inputVal = input.val();
-  postSales(inputVal);
+
+  var salesmanElem = me.siblings(".salesman  option").val();
+  var monthElem = me.siblings(".monthOfTheYear  option").val();
+
+  postSales(salesmanElem, inputVal, monthElem);
 }
 
-function postSales(inputVal) {
-
-  var salesman = $(".salesman > option");
-  for (var i = 0; i < salesman.length; i++) {
-    var salesmanElem = $(".salesman > option").eq(i).val();
-  }
-
-  var monthOfTheYear = $(".monthOfTheYear > option");
-  for (var i = 0; i < salesman.length; i++) {
-    var monthElem = $(".monthOfTheYear > option").eq(i).val();
-  }
-
- var outData = {
+function postSales(salesmanElem, inputVal, monthElem) {
+   var outData = {
     salesman: salesmanElem,
     amount: inputVal,
     date: monthElem
