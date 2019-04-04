@@ -92,13 +92,12 @@ function inputTxt() {
   var input = $("#txt");
   var inputVal = input.val();
 
-  var salesmanElem = $(".salesman  option").val();
-  var monthElem = $(".monthOfTheYear  option").val();
-
-  postSales(salesmanElem, inputVal, monthElem);
+  postSales(inputVal);
 }
 
-function postSales(salesmanElem, inputVal, monthElem) {
+function postSales(inputVal) {
+  var salesmanElem = $(".salesman  option").val();
+  var monthElem = $(".monthOfTheYear  option").val();
    var outData = {
     salesman: salesmanElem,
     amount: inputVal,
