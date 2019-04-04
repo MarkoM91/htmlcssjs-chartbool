@@ -109,7 +109,7 @@ function postSales(inputVal) {
        data:outData,
        method : "POST",
        success : function(inData) {
-          dashboardItem();
+          dashboardItem(inData);
        }
    });
  }
