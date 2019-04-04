@@ -21,7 +21,9 @@ function dashboardItem() {
     success : function(inData) {
 
        kpiDashboard(inData)
-       kpiSalesman(inData)
+       //CREAZIONE GRAFICO A TORTA
+      var result = kpiSalesman(inData);
+      pieChart(result);
     },
     error: function (request, state, error) {
       console.log("request" , request);
@@ -76,16 +78,24 @@ function kpiDashboard(inData) {
 }
 
 function kpiSalesman(inData) {
-console.log(inData);
-  var totSalesman = {
 
-    "Marco":0,
-    "Giuseppe":0,
-    "Roberto":0,
-    "Riccardo":0
+    var totSalesman = {};
+
+  for (var i = 0; i < inData.length; i++) {
+
+    var element = inData[i];
+    var salesman = element.salesman;
+
+    if (!totSalesman[salesman]) {
+
+       totSalesman[salesman] = 0;
+    }
+
+    totSalesman[salesman] += element.amount;
 
   }
-
+  console.log(totSalesman);
+  return totSalesman;
 }
 
 //function postSales() {
@@ -162,7 +172,13 @@ data: {
 });
 }
 
-function pieChart(arrS, arrP) {
+function pieChart(data) {
+
+  var labels = Object.keys(data);
+  var values = Object.values(data);
+
+  console.log("label" + labels);
+  console.log("data" + values);
 
   Chart.defaults.global.defaultFontColor = 'red';
 
@@ -173,7 +189,7 @@ type: 'pie',
 
 // The data for our dataset
 data: {
-    labels: arrS,
+    labels: labels,
     datasets: [{
         label: 'My First dataset',
         backgroundColor: [
@@ -279,7 +295,7 @@ data: {
           'rgba(255, 159, 64, 1)'
         ],
 
-        data: arrP
+        data: values
     }]
   },
 
@@ -301,7 +317,7 @@ function init() {
 
  printKeysAndValues(object);
 
- postSales();
+ //postSales();
 
  //$(document).on("click", "#btn", postSales);
 }
