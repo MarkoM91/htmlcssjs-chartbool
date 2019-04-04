@@ -64,7 +64,7 @@ function kpiDashboard(inData) {
      totMonth[monthName] += amount;
 
      totalAmount += amount;
-     var perc = data.amount/totalAmount;
+     var perc = data.amount / totalAmount;
      arrP.push(perc);
      arrS.push(salesman);
     }
@@ -73,6 +73,37 @@ function kpiDashboard(inData) {
   var valueList = Object.values(totMonth);
   lineChart(monthList, valueList);
   pieChart(arrS, arrP)
+}
+
+function postSales() {
+
+  $.ajax({
+
+      url: "http://157.230.17.132:4016/sales",
+      method : "POST",
+      success : function(inData) {
+       var data;
+       for (var i = 0; i < inData.length; i++) {
+
+           data = inData[i];
+         console.log(data);
+       }
+
+      }
+  });
+
+}
+
+function select(salesman) {
+
+  var salesman = $(".salesman");
+  for (var i = 0; i < salesman.length; i++) {
+
+    option =document.createElement("option");
+    option.value = players[i].id;
+
+    datalist.append(option);
+  }
 }
 
 function lineChart(monthList, valueList) {
@@ -243,7 +274,9 @@ function init() {
 
  dashboardItem();
 
- printKeysAndValues(object)
+ printKeysAndValues(object);
+
+ postSales();
 }
 
 $(document).ready(init);
