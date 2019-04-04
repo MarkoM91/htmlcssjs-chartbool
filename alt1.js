@@ -95,14 +95,20 @@ function inputTxt() {
 
 function postSales(inputVal) {
 
- console.log(inputVal);
- var salesman = $(".salesman option").val();
- var monthOfTheYear = $(".monthOfTheYear option").val();
+  var salesman = $(".salesman > option");
+  for (var i = 0; i < salesman.length; i++) {
+    var salesmanElem = $(".salesman > option").eq(i).val();
+  }
+
+  var monthOfTheYear = $(".monthOfTheYear > option");
+  for (var i = 0; i < salesman.length; i++) {
+    var monthElem = $(".monthOfTheYear > option").eq(i).val();
+  }
 
  var outData = {
-    salesman: salesman,
+    salesman: salesmanElem,
     amount: inputVal,
-    date: monthOfTheYear,
+    date: monthElem
  }
 
    $.ajax({
@@ -175,9 +181,6 @@ data: {
 function pieChart(data) {
   var labels = Object.keys(data);
   var values = Object.values(data);
-
-  console.log("label" + labels);
-  console.log("data" + values);
 
   Chart.defaults.global.defaultFontColor = 'red';
 
@@ -314,6 +317,7 @@ function init() {
 
  var button = $("#btn");
  button.click(inputTxt);
+
 }
 
 $(document).ready(init);
