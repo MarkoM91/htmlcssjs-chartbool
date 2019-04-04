@@ -17,9 +17,13 @@ body {
 
   width: 150px;
   height: 30px;
-  position: relative;
-  top: 7px;
+
+  box-shadow: none; 
+
   margin-left: 10px;
+
+  background: purple;
+  color: white;
 }
 
 .canvas {

@@ -291,6 +291,8 @@ function init() {
  printKeysAndValues(object);
 
  postSales();
+
+ $(document).on("click", "#btn", postSales);
 }
 
 $(document).ready(init);
