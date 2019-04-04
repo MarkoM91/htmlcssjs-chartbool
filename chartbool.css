@@ -13,15 +13,19 @@ body {
   justify-content: space-between;
 }
 
-#btn {
+#txt {
 
   width: 150px;
   height: 30px;
-
-  box-shadow: none; 
-
   margin-left: 10px;
+}
 
+#btn {
+
+  width: 30px;
+  height: 40px;
+
+  box-shadow: none;
   background: purple;
   color: white;
 }
