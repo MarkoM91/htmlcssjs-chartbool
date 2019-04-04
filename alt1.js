@@ -21,6 +21,7 @@ function dashboardItem() {
     success : function(inData) {
 
        kpiDashboard(inData)
+       kpiSalesman(inData)
     },
     error: function (request, state, error) {
       console.log("request" , request);
@@ -48,9 +49,7 @@ function kpiDashboard(inData) {
     "dicembre":0
   }
 
-  var arrP = [];
-  var arrS = [];
-  var totalAmount = 0;
+
   for (var i = 0; i < inData.length; i++) {
 
      var data = inData[i];
@@ -58,23 +57,35 @@ function kpiDashboard(inData) {
      var date = data.date;
      var salesman = data.salesman;
 
+
      var mom = moment(date, "DD/MM/YYYY");
      var monthName = mom.locale("it").format("MMMM");
 
      totMonth[monthName] += amount;
 
-     totalAmount += amount;
-     var perc = data.amount / totalAmount;
-     arrP.push(perc);
-     arrS.push(salesman);
-    }
 
+    }
   var monthList = Object.keys(totMonth);
   var valueList = Object.values(totMonth);
+
+
   lineChart(monthList, valueList);
   pieChart(arrS, arrP);
   selectS(salesman);
   selectMOTY(monthList);
+}
+
+function kpiSalesman(inData) {
+console.log(inData);
+  var totSalesman = {
+
+    "Marco":0,
+    "Giuseppe":0,
+    "Roberto":0,
+    "Riccardo":0
+
+  }
+
 }
 
 function postSales() {
@@ -97,7 +108,7 @@ function postSales() {
 }
 
 function selectS(salesman) {
-console.log(salesman);
+
   var selectSalesman = $(".salesman");
   for (var i = 0; i < salesman.length; i++) {
 
