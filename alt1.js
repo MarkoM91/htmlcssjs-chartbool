@@ -107,27 +107,28 @@ function inputTxt() {
 
 function postSales(inputVal) {
 
-//  var outData = {
-//
-//    salesman:
-//    amount: ,    date: ,
-//    id:
-//  }
+ var salesman = $(".salesman").val();
+ var monthOfTheYear = $(".monthOfTheYear").val();
+ var outData = {
+
+    salesman: salesman,
+    amount: inputVal,
+    date: monthOfTheYear,
+ }
 
 
 
- //  $.ajax({
- //
- //      url: "http://157.230.17.132:4016/sales",
- //      method : "POST",
- //      success : function(inData) {
- //
- //         for (var i = 0; i < inData.length; i++) {
- //           var data = inData[i];
- //         }
- //         }
- //      }
- //  });
+   $.ajax({
+
+       url: "http://157.230.17.132:4016/sales",
+       data:outData,
+       method : "POST",
+       success : function(inData) {
+
+
+
+       }
+   });
  }
 
 function selectS(salesmanList) {
