@@ -1,5 +1,4 @@
 function getMOnthNameFromDate(date) {
-
     var mom = moment(date, "MM DD YYYY");
     var monthName = mom.format("MMMM");
 
@@ -7,7 +6,6 @@ function getMOnthNameFromDate(date) {
 }
 
 function printKeysAndValues(object) {
-
   var keys = Object.keys(object); //oggetto JS (Object), keys funzione.
   var values = Object.values(object);
 }
@@ -34,9 +32,7 @@ function dashboardItem() {
 }
 
 function kpiDashboard(inData) {
-
   var totMonth = {
-
     "gennaio":0,
     "febbraio":0,
     "marzo":0,
@@ -52,7 +48,6 @@ function kpiDashboard(inData) {
   }
 
   for (var i = 0; i < inData.length; i++) {
-
      var data = inData[i];
      var amount = data.amount;
      var date = data.date;
@@ -97,7 +92,6 @@ function kpiSalesman(inData) {
 }
 
 function inputTxt() {
-
   var input = $("#gen-txt");
   var inputVal = input.val();
 
@@ -105,9 +99,9 @@ function inputTxt() {
 }
 
 function postSales(inputVal) {
-
  var salesman = $(".salesman").val();
  var monthOfTheYear = $(".monthOfTheYear").val();
+
  var outData = {
     salesman: salesman,
     amount: inputVal,
@@ -115,24 +109,22 @@ function postSales(inputVal) {
  }
 
    $.ajax({
-
        url: "http://157.230.17.132:4016/sales",
        data:outData,
        method : "POST",
        success : function(inData) {
-
-          dashboardItem()
-
+          dashboardItem();
        }
    });
  }
 
 function selectS(salesmanList) {
-  console.log(salesmanList);
   var selectSalesman = $(".salesman");
+
   for (var i = 0; i < salesmanList.length; i++) {
     var element = salesmanList[i];
     var option = document.createElement("option");
+
     option.value = element;
     option.innerHTML = element;
 
@@ -141,19 +133,20 @@ function selectS(salesmanList) {
 }
 
 function selectMOTY(monthList) {
-
   var selectMOTY = $(".monthOfTheYear");
+
   for (var i = 0; i < monthList.length; i++) {
     var monthName = monthList[i];
     option =document.createElement("option");
+
     option.value = monthName;
     option.innerHTML = monthName;
+
     selectMOTY.append(option);
   }
 }
 
 function lineChart(monthList, valueList) {
-
   Chart.defaults.global.defaultFontColor = 'red';
 
   var ctx = document.getElementById('myChart').getContext('2d');
@@ -178,13 +171,11 @@ data: {
         data: valueList
     }]
   },
-
     options:{}
 });
 }
 
 function pieChart(data) {
-
   var labels = Object.keys(data);
   var values = Object.values(data);
 
@@ -204,7 +195,6 @@ data: {
     datasets: [{
         label: 'My First dataset',
         backgroundColor: [
-
           'rgba(255, 99, 132, 1)',
           'rgba(54, 162, 235, 1)',
           'rgba(255, 206, 86, 1)',
@@ -254,8 +244,8 @@ data: {
           'rgba(153, 102, 255, 1)',
           'rgba(255, 159, 64, 1)'
         ],
+
         borderColor:  [
-
           'rgba(255, 99, 132, 1)',
           'rgba(54, 162, 235, 1)',
           'rgba(255, 206, 86, 1)',
@@ -305,7 +295,6 @@ data: {
           'rgba(153, 102, 255, 1)',
           'rgba(255, 159, 64, 1)'
         ],
-
         data: values
     }]
   },
@@ -315,20 +304,18 @@ data: {
 }
 
 function init() {
-
  getMOnthNameFromDate("12/07/2017");
- var object = {
 
+ var object = {
   "att1" : "val1",
   "att2" : "val2",
   "att3" : "val3",
  };
 
  dashboardItem();
-
  printKeysAndValues(object);
 
-var button = $("#btn");
+ var button = $("#btn");
  button.click(inputTxt);
 }
 
