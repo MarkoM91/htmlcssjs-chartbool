@@ -81,11 +81,17 @@ function kpiSalesman(inData) {
 
     var totSalesman = {};
 
+    var totalAmount = 0;
+
   for (var i = 0; i < inData.length; i++) {
 
     var element = inData[i];
     var salesman = element.salesman;
-
+    var amount = element.amount;
+console.log(amount);
+    totalAmount += amount;
+    var perc = (amount / totalAmount) * 100;
+console.log(perc);
     if (!totSalesman[salesman]) {
 
        totSalesman[salesman] = 0;
@@ -94,7 +100,7 @@ function kpiSalesman(inData) {
     totSalesman[salesman] += element.amount;
 
   }
-  console.log(totSalesman);
+
   return totSalesman;
 }
 
