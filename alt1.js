@@ -97,7 +97,7 @@ function postSales() {
 }
 
 function selectS(salesman) {
-
+console.log(salesman);
   var selectSalesman = $(".salesman");
   for (var i = 0; i < salesman.length; i++) {
 
