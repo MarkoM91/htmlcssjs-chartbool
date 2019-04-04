@@ -70,9 +70,9 @@ function kpiDashboard(inData) {
 
 
   lineChart(monthList, valueList);
-  pieChart(arrS, arrP);
-  selectS(salesman);
-  selectMOTY(monthList);
+
+  //selectS(salesman);
+  //selectMOTY(monthList);
 }
 
 function kpiSalesman(inData) {
@@ -88,48 +88,48 @@ console.log(inData);
 
 }
 
-function postSales() {
+//function postSales() {
 
-  $.ajax({
+//  $.ajax({
+//
+//      url: "http://157.230.17.132:4016/sales",
+//      method : "POST",
+//      success : function(inData) {
+//       var data;
+//       for (var i = 0; i < inData.length; i++) {
+//
+//           data = inData[i];
+//         console.log(data);
+//       }
+//
+//      }
+//  });
+//
+//}
 
-      url: "http://157.230.17.132:4016/sales",
-      method : "POST",
-      success : function(inData) {
-       var data;
-       for (var i = 0; i < inData.length; i++) {
+//function selectS(salesman) {
 
-           data = inData[i];
-         console.log(data);
-       }
+//  var selectSalesman = $(".salesman");
+//  for (var i = 0; i < salesman.length; i++) {
+//
+//    option =document.createElement("option");
+//    option.value = salesmans[i].salesman;
+//
+//    datalist.append(selectSalesman);
+//  }
+//}
+//
+//function selectMOTY(monthList) {
 
-      }
-  });
-
-}
-
-function selectS(salesman) {
-
-  var selectSalesman = $(".salesman");
-  for (var i = 0; i < salesman.length; i++) {
-
-    option =document.createElement("option");
-    option.value = salesmans[i].salesman;
-
-    datalist.append(selectSalesman);
-  }
-}
-
-function selectMOTY(monthList) {
-
-  var selectMOTY = $(".salesman");
-  for (var i = 0; i < monthList.length; i++) {
-
-    option =document.createElement("option");
-    option.value = monthList[i];
-
-    datalist.append(selectMOTY);
-  }
-}
+//  var selectMOTY = $(".salesman");
+//  for (var i = 0; i < monthList.length; i++) {
+//
+//    option =document.createElement("option");
+//    option.value = monthList[i];
+//
+//    datalist.append(selectMOTY);
+//  }
+//}
 
 function lineChart(monthList, valueList) {
 
@@ -303,7 +303,7 @@ function init() {
 
  postSales();
 
- $(document).on("click", "#btn", postSales);
+ //$(document).on("click", "#btn", postSales);
 }
 
 $(document).ready(init);
