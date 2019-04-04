@@ -116,8 +116,6 @@ function postSales(inputVal) {
     date: monthOfTheYear,
  }
 
-
-
    $.ajax({
 
        url: "http://157.230.17.132:4016/sales",
@@ -125,7 +123,7 @@ function postSales(inputVal) {
        method : "POST",
        success : function(inData) {
 
-
+          dashboardItem()
 
        }
    });
