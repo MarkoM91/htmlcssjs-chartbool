@@ -30,8 +30,8 @@ function dashboardItem() {
 }
 
 function kpiDashboard(inData) {
-  var totMonth = {
 
+  var totMonth = {
     "gennaio":0,
     "febbraio":0,
     "marzo":0,
@@ -92,7 +92,7 @@ function kpiSalesman(inData) {
   for(var i in totSalesman) {
     //Converto in percentuale il totale calcolato per venditore
     //Dopo il calcolo sostituisco il valore con la percentuale
-    totSalesman[i] = (totSalesman[i] / totalAmount) * 100;
+    totSalesman[i] = ((totSalesman[i] / totalAmount) * 100);
   }
   console.log(totSalesman)
 
@@ -132,6 +132,7 @@ function postSales(salesmanElem, inputVal, monthElem) {
  }
 
 function selectS(salesmanList) {
+
   var selectSalesman = $(".salesman");
 
   for (var i = 0; i < salesmanList.length; i++) {
@@ -146,6 +147,7 @@ function selectS(salesmanList) {
 }
 
 function selectMOTY(monthList) {
+
   var selectMOTY = $(".monthOfTheYear");
 
   for (var i = 0; i < monthList.length; i++) {
@@ -160,6 +162,7 @@ function selectMOTY(monthList) {
 }
 
 function lineChart(monthList, valueList) {
+
   Chart.defaults.global.defaultFontColor = 'red';
 
   var ctx = document.getElementById('myChart').getContext('2d');
@@ -189,6 +192,7 @@ data: {
 }
 
 function pieChart(data) {
+
   var labels = Object.keys(data);
   var values = Object.values(data);
 
@@ -314,6 +318,7 @@ data: {
 }
 
 function init() {
+
  getMOnthNameFromDate("12/07/2017");
 
  var object = {

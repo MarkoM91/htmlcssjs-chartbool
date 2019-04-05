@@ -6,11 +6,27 @@
 }
 
 body {
-  width: 150vw;
-  height: 150vh;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.dinamicAdd {
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.canvas-container {
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
 
 #txt {
@@ -33,15 +49,24 @@ body {
 .canvas {
 
   width: 500px;
-  height: 400px;
+  height: 500px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .canvas2 {
 
-  width: 1000px;
-  height: 1000px;
+  width: 500px;
+  height: 500px;
+
   position: relative;
-  top: 150px;
+  bottom: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 select {
