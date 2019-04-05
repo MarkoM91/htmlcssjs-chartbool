@@ -177,7 +177,7 @@ type: 'line',
 data: {
     labels: monthList,
     datasets: [{
-        label: 'My First dataset',
+        label: 'Monthly Sales',
         backgroundColor: [
 
           'rgba(255, 99, 132, 1)',
@@ -210,7 +210,7 @@ type: 'pie',
 data: {
     labels: labels,
     datasets: [{
-        label: 'My First dataset',
+        label: 'Salesmen Perfomances',
         backgroundColor: [
           'rgba(255, 99, 132, 1)',
           'rgba(54, 162, 235, 1)',
