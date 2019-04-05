@@ -30,7 +30,7 @@ function dashboardItem() {
 }
 
 function kpiDashboard(inData) {
-
+console.log(inData);
   var totMonth = {
     "gennaio":0,
     "febbraio":0,
@@ -51,16 +51,16 @@ function kpiDashboard(inData) {
      var amount = Number(data.amount);
      var date = data.date;
      var salesman = data.salesman;
-
+console.log(amount);
      var mom = moment(date, "DD/MM/YYYY");
      var monthName = mom.locale("it").format("MMMM");
 
      if (!isNaN(amount)) {
        totMonth[monthName] += amount;
      }
-console.log(monthName);
-  }
 
+  }
+console.log(totMonth);
   var monthList = Object.keys(totMonth);
   var valueList = Object.values(totMonth);
 
