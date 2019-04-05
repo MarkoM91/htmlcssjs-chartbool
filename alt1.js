@@ -73,19 +73,29 @@ function kpiSalesman(inData) {
   for (var i = 0; i < inData.length; i++) {
     var element = inData[i];
     var salesman = element.salesman;
-    var amount = element.amount;
+    var amount = Number(element.amount);
 
-    totalAmount += amount;
-
-    //for (var i = 0; i < amount.length; i++) {
-    //  var amount[i] = (amount[i] *100 / totalAmount);
-    //}
+    //Se è un numero (cioè non è NaN) allora sommo gli amount
+    if(!isNaN(amount)) {
+      totalAmount += amount;
 
       if (!totSalesman[salesman]) { //se venditore non esiste all'interno dell'attributo totSalesman;
-       totSalesman[salesman] = 0;
+         totSalesman[salesman] = 0;
+      }
+      console.log(totalAmount);
+      totSalesman[salesman] += amount;
     }
-    totSalesman[salesman] += element.amount;
   }
+
+  console.log(totSalesman)
+  //Ciclo gli elementi del mio oggetto
+  for(var i in totSalesman) {
+    //Converto in percentuale il totale calcolato per venditore
+    //Dopo il calcolo sostituisco il valore con la percentuale
+    totSalesman[i] = (totSalesman[i] / totalAmount) * 100;
+  }
+  console.log(totSalesman)
+
   var salesmanList = Object.keys(totSalesman);
   selectS(salesmanList);
 
@@ -103,7 +113,7 @@ function inputTxt() {
   postSales(salesmanElem, inputVal, monthElem);
 }
 
-function postSales(salesman, inputVal, monthElem) {
+function postSales(salesmanElem, inputVal, monthElem) {
 
    var outData = {
     salesman: salesmanElem,
