@@ -93,15 +93,18 @@ function kpiSalesman(inData) {
 }
 
 function inputTxt() {
+
   var me = $(this);
   var inputVal = me.siblings("#txt").val();
 
-  postSales(inputVal);
-}
-
-function postSales(inputVal) {
   var salesmanElem = $(".salesman").val();
   var monthElem = $(".monthOfTheYear").val();
+
+  postSales(salesmanElem, inputVal, monthElem);
+}
+
+function postSales(salesman, inputVal, monthElem) {
+
    var outData = {
     salesman: salesmanElem,
     amount: inputVal,
