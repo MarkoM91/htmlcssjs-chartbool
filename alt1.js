@@ -66,6 +66,7 @@ function kpiDashboard(inData) {
 }
 
 function kpiSalesman(inData) {
+
   var totSalesman = {};
   var totalAmount = 0;
 
@@ -75,8 +76,12 @@ function kpiSalesman(inData) {
     var amount = element.amount;
 
     totalAmount += amount;
-    var perc = (amount / totalAmount) * 100;
-    if (!totSalesman[salesman]) {
+
+    //for (var i = 0; i < amount.length; i++) {
+    //  var amount[i] = (amount[i] *100 / totalAmount);
+    //}
+
+      if (!totSalesman[salesman]) { //se venditore non esiste all'interno dell'attributo totSalesman;
        totSalesman[salesman] = 0;
     }
     totSalesman[salesman] += element.amount;
@@ -95,8 +100,8 @@ function inputTxt() {
 }
 
 function postSales(inputVal) {
-  var salesmanElem = $(".salesman  option").val();
-  var monthElem = $(".monthOfTheYear  option").val();
+  var salesmanElem = $(".salesman").val();
+  var monthElem = $(".monthOfTheYear").val();
    var outData = {
     salesman: salesmanElem,
     amount: inputVal,
