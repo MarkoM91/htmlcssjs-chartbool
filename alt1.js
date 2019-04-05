@@ -48,15 +48,18 @@ function kpiDashboard(inData) {
 
   for (var i = 0; i < inData.length; i++) {
      var data = inData[i];
-     var amount = data.amount;
+     var amount = Number(data.amount);
      var date = data.date;
      var salesman = data.salesman;
 
      var mom = moment(date, "DD/MM/YYYY");
      var monthName = mom.locale("it").format("MMMM");
 
-     totMonth[monthName] += amount;
-    }
+     if (!isNaN(amount)) {
+       totMonth[monthName] += amount;
+     }
+console.log(monthName);
+  }
 
   var monthList = Object.keys(totMonth);
   var valueList = Object.values(totMonth);
@@ -163,7 +166,7 @@ function selectMOTY(monthList) {
 
 function lineChart(monthList, valueList) {
 
-  Chart.defaults.global.defaultFontColor = 'red';
+  Chart.defaults.global.defaultFontColor = 'black';
 
   var ctx = document.getElementById('myChart').getContext('2d');
   var chart = new Chart(ctx, {
@@ -196,7 +199,7 @@ function pieChart(data) {
   var labels = Object.keys(data);
   var values = Object.values(data);
 
-  Chart.defaults.global.defaultFontColor = 'red';
+  Chart.defaults.global.defaultFontColor = 'black';
 
   var ctx = document.getElementById('myChart2').getContext('2d');
   var chart = new Chart(ctx, {
@@ -318,7 +321,6 @@ data: {
 }
 
 function init() {
-
  getMOnthNameFromDate("12/07/2017");
 
  var object = {
@@ -332,7 +334,6 @@ function init() {
 
  var button = $("#btn");
  button.click(inputTxt);
-
 }
 
 $(document).ready(init);
