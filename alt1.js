@@ -20,7 +20,7 @@ function dashboardItem() {
 function kpiDashboard(inData) {
 console.log(inData);
   var totMonth = {
-    "gennaio":0,
+    "gennaio":0,     // si crea un oggetto che rappresenta l'anno;
     "febbraio":0,
     "marzo":0,
     "aprile":0,
@@ -39,12 +39,12 @@ console.log(inData);
      var amount = Number(data.amount);
      var date = data.date;
      var salesman = data.salesman;
-console.log(amount);
+console.log((amount));
      var mom = moment(date, "DD/MM/YYYY");
      var monthName = mom.locale("it").format("MMMM");
 
      if (!isNaN(amount)) {
-       totMonth[monthName] += amount;
+       totMonth[monthName] += amount; // oggetto, nome del mese(che deve essere trattato come se fosse l'indice di un array), gli aggiungo l'amount corrisponedente
      }
 
   }
@@ -101,15 +101,21 @@ function inputTxt() {
   var salesmanElem = $(".salesman").val();
   var monthElem = $(".monthOfTheYear").val();
 
-  postSales(salesmanElem, inputVal, monthElem);
+  var mom = moment();
+  mom.year(2017);
+  mom.month(monthElem, "MM");
+  mom.date(Math.floor(Math.random() * 30) +1);
+  var updatedDate = mom.format("DD/MM/YYYY");
+
+  postSales(salesmanElem, inputVal, updatedDate);
 }
 
-function postSales(salesmanElem, inputVal, monthElem) {
+function postSales(salesmanElem, inputVal, updatedDate) {
 
    var outData = {
     salesman: salesmanElem,
-    amount: inputVal,
-    date: monthElem
+    amount: Number(inputVal),
+    date: updatedDate
  }
 
    $.ajax({
@@ -221,6 +227,7 @@ data: {
 }
 
 function init() {
+
  dashboardItem();
 
  var button = $("#btn");
