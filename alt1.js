@@ -221,12 +221,6 @@ data: {
 }
 
 function init() {
- var object = {
-  "att1" : "val1",
-  "att2" : "val2",
-  "att3" : "val3",
- };
-
  dashboardItem();
 
  var button = $("#btn");
