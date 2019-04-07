@@ -18,7 +18,7 @@ function dashboardItem() {
 }
 
 function kpiDashboard(inData) {
-console.log(inData);
+
   var totMonth = {
     "gennaio":0,     // si crea un oggetto che rappresenta l'anno;
     "febbraio":0,
@@ -39,7 +39,7 @@ console.log(inData);
      var amount = Number(data.amount);
      var date = data.date;
      var salesman = data.salesman;
-console.log((amount));
+
      var mom = moment(date, "DD/MM/YYYY");
      var monthName = mom.locale("it").format("MMMM");
 
@@ -48,7 +48,6 @@ console.log((amount));
      }
 
   }
-console.log(totMonth);
   var monthList = Object.keys(totMonth);
   var valueList = Object.values(totMonth);
 
@@ -73,20 +72,17 @@ function kpiSalesman(inData) {
       if (!totSalesman[salesman]) { //se venditore non esiste all'interno dell'attributo totSalesman;
          totSalesman[salesman] = 0;
       }
-      console.log(totalAmount);
-      totSalesman[salesman] += amount;
+        totSalesman[salesman] += amount;
     }
   }
 
-  console.log(totSalesman)
   //Ciclo gli elementi del mio oggetto
   for(var i in totSalesman) {
     //Converto in percentuale il totale calcolato per venditore
     //Dopo il calcolo sostituisco il valore con la percentuale
     totSalesman[i] = ((totSalesman[i] / totalAmount) * 100);
   }
-  console.log(totSalesman)
-
+  
   var salesmanList = Object.keys(totSalesman);
   selectS(salesmanList);
 
@@ -103,7 +99,7 @@ function inputTxt() {
 
   var mom = moment();
   mom.year(2017);
-  mom.month(monthElem, "MM");
+  mom.month(monthElem);
   mom.date(Math.floor(Math.random() * 30) +1);
   var updatedDate = mom.format("DD/MM/YYYY");
 
