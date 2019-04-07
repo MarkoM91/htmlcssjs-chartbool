@@ -1,4 +1,19 @@
+function clearCanvas() {
+
+  var canvas = $(".canvas");
+  canvas.remove();
+
+  var template = $("#box-template").html();
+  var compiled = Handlebars.compile(template);
+  var finalHTML = compiled();
+
+  var canvas_container = $(".canvas-container");
+  canvas_container.append(finalHTML);
+}
+
 function dashboardItem() {
+
+  clearCanvas();
 
   $.ajax({
     url: "http://157.230.17.132:4016/sales",
@@ -82,7 +97,7 @@ function kpiSalesman(inData) {
     //Dopo il calcolo sostituisco il valore con la percentuale
     totSalesman[i] = ((totSalesman[i] / totalAmount) * 100);
   }
-  
+
   var salesmanList = Object.keys(totSalesman);
   selectS(salesmanList);
 
