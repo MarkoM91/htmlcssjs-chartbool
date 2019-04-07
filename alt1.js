@@ -1,15 +1,3 @@
-function getMOnthNameFromDate(date) {
-    var mom = moment(date, "MM DD YYYY");
-    var monthName = mom.format("MMMM");
-
-    return monthName;
-}
-
-function printKeysAndValues(object) {
-  var keys = Object.keys(object); //oggetto JS (Object), keys funzione.
-  var values = Object.values(object);
-}
-
 function dashboardItem() {
 
   $.ajax({
@@ -233,8 +221,6 @@ data: {
 }
 
 function init() {
- getMOnthNameFromDate("12/07/2017");
-
  var object = {
   "att1" : "val1",
   "att2" : "val2",
@@ -242,7 +228,6 @@ function init() {
  };
 
  dashboardItem();
- printKeysAndValues(object);
 
  var button = $("#btn");
  button.click(inputTxt);
